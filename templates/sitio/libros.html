@@ -1,0 +1,30 @@
+{% include 'sitio/cabecera.html' %}
+
+<div class="container py-4">
+    <div class="row">
+        {% for libro in libros %}
+        <div class="col-md-3 mb-4">
+            <!-- Agregamos h-100 para que todas las tarjetas midan lo mismo de alto -->
+            <div class="card h-100 shadow-sm">
+                
+                <!-- Definimos altura fija y object-fit para que ninguna imagen deforme la tarjeta -->
+                <img src="/img/{{ libro[2] }}" class="card-img-top" style="height: 250px; object-fit: cover;" alt="Title">
+                
+                <!-- Usamos d-flex flex-column para organizar el contenido interior -->
+                <div class="card-body d-flex flex-column">
+                    <h4 class="card-title">{{ libro[1] }}</h4>
+                    <p class="card-text"></p>
+                    
+                    <!-- mt-auto empuja automáticamente el botón hacia la parte inferior -->
+                    <div class="mt-auto">
+                        <a name="" id="" class="btn btn-success w-100" href="{{ libro[3] }}" role="button" target="_blank">Descargar</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% include 'sitio/pie.html' %}
